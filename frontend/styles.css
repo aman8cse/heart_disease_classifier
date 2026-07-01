@@ -22,8 +22,7 @@ body{
 }
 
 .card{
-
-    width:900px;
+    width:min(1000px,95vw);
 
     background:#1e293b;
 
@@ -31,6 +30,7 @@ body{
 
     border-radius:20px;
 
+    box-shadow:0 15px 40px rgba(0,0,0,.3);
 }
 
 h1{
@@ -48,17 +48,17 @@ p{
 }
 
 .grid{
-
     display:grid;
 
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(2,minmax(0,1fr));
 
-    gap:15px;
-
+    gap:18px;
 }
 
 input,
 select{
+
+    width:100%;
 
     padding:14px;
 
@@ -66,15 +66,18 @@ select{
 
     border-radius:10px;
 
+    font-size:16px;
+
+    outline:none;
 }
 
 button{
 
     width:100%;
 
-    margin-top:20px;
-
     padding:16px;
+
+    margin-top:20px;
 
     border:none;
 
@@ -84,9 +87,17 @@ button{
 
     color:white;
 
+    font-size:18px;
+
     cursor:pointer;
 
-    font-size:18px;
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
 
 }
 
@@ -164,4 +175,56 @@ button:hover{
 
 .loader.show{
     display:flex;
+}
+
+@media (max-width:900px){
+
+    .card{
+
+        padding:25px;
+
+    }
+
+    .grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media (max-width:600px){
+
+    body{
+
+        padding:20px;
+
+        align-items:flex-start;
+
+    }
+
+    .card{
+
+        width:100%;
+
+        padding:20px;
+
+    }
+
+    h1{
+
+        font-size:28px;
+
+    }
+
+    input,
+    select,
+    button{
+
+        font-size:15px;
+
+        padding:13px;
+
+    }
+
 }
