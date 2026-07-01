@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Heart Disease Predictor</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>❤️ Heart Disease Predictor</h1>
+
+        <p>Predict heart disease severity using Machine Learning.</p>
+
+        <form id="predictForm">
+
+            <div class="grid">
+
+                <input id="age" type="number" placeholder="Age">
+
+                <select id="sex">
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+
+                <input id="trestbps" type="number" placeholder="Blood Pressure">
+
+                <input id="chol" type="number" placeholder="Cholesterol">
+
+                <input id="thalch" type="number" placeholder="Max Heart Rate">
+
+                <input id="oldpeak" step="0.1" type="number" placeholder="Old Peak">
+
+                <input id="ca" type="number" placeholder="Major Vessels">
+
+                <select id="cp">
+                    <option>typical angina</option>
+                    <option>atypical angina</option>
+                    <option>non-anginal</option>
+                    <option>asymptomatic</option>
+                </select>
+
+                <select id="fbs">
+                    <option>true</option>
+                    <option>false</option>
+                </select>
+
+                <select id="restecg">
+                    <option>normal</option>
+                    <option>lv hypertrophy</option>
+                    <option>st-t abnormality</option>
+                </select>
+
+                <select id="exang">
+                    <option>true</option>
+                    <option>false</option>
+                </select>
+
+                <select id="slope">
+                    <option>upsloping</option>
+                    <option>flat</option>
+                    <option>downsloping</option>
+                </select>
+
+                <select id="thal">
+                    <option>normal</option>
+                    <option>fixed defect</option>
+                    <option>reversable defect</option>
+                </select>
+
+            </div>
+
+            <button type="submit">Predict</button>
+
+        </form>
+
+        <div id="result"></div>
+
+        <div id="loader" class="loader hidden">
+    <div class="spinner"></div>
+    <p>
+        🚀 Starting AI prediction service...<br>
+        The backend may take up to a minute to wake up on the free server.
+    </p>
+</div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

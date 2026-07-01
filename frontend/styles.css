@@ -1,0 +1,167 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+
+    background:#0f172a;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:100vh;
+
+}
+
+.card{
+
+    width:900px;
+
+    background:#1e293b;
+
+    padding:40px;
+
+    border-radius:20px;
+
+}
+
+h1{
+
+    margin-bottom:10px;
+
+}
+
+p{
+
+    margin-bottom:25px;
+
+    color:#cbd5e1;
+
+}
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:15px;
+
+}
+
+input,
+select{
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+}
+
+button{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+button:hover{
+
+    background:#1d4ed8;
+
+}
+
+#result{
+
+    margin-top:25px;
+
+    padding:20px;
+
+    border-radius:10px;
+
+    background:#111827;
+
+}
+
+.hidden{
+    display:none;
+}
+
+.loader{
+
+    margin-top:30px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.spinner{
+
+    width:60px;
+
+    height:60px;
+
+    border:6px solid #334155;
+
+    border-top:6px solid #3b82f6;
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+
+}
+
+@keyframes spin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+.loader{
+    display:none;
+    margin-top:30px;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+}
+
+.loader.show{
+    display:flex;
+}
