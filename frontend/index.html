@@ -4,9 +4,6 @@
 <head>
 
     <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Heart Disease Predictor</title>
@@ -23,85 +20,310 @@
 
         <h1>❤️ Heart Disease Predictor</h1>
 
-        <p>Predict heart disease severity using Machine Learning.</p>
+        <p>
+            Predict the likelihood and severity of heart disease using Machine Learning.
+        </p>
 
         <form id="predictForm">
 
+            <h2>Patient Information</h2>
+
             <div class="grid">
 
-                <input id="age" type="number" placeholder="Age">
+                <div class="field">
+                    <label for="age">Age (Years)</label>
+                    <input id="age" type="number" min="18" max="120" required>
+                </div>
 
-                <select id="sex">
-                    <option>Male</option>
-                    <option>Female</option>
-                </select>
+                <div class="field">
+                    <label for="sex">Gender</label>
+                    <select id="sex">
 
-                <input id="trestbps" type="number" placeholder="Blood Pressure">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
 
-                <input id="chol" type="number" placeholder="Cholesterol">
-
-                <input id="thalch" type="number" placeholder="Max Heart Rate">
-
-                <input id="oldpeak" step="0.1" type="number" placeholder="Old Peak">
-
-                <input id="ca" type="number" placeholder="Major Vessels">
-
-                <select id="cp">
-                    <option>typical angina</option>
-                    <option>atypical angina</option>
-                    <option>non-anginal</option>
-                    <option>asymptomatic</option>
-                </select>
-
-                <select id="fbs">
-                    <option>true</option>
-                    <option>false</option>
-                </select>
-
-                <select id="restecg">
-                    <option>normal</option>
-                    <option>lv hypertrophy</option>
-                    <option>st-t abnormality</option>
-                </select>
-
-                <select id="exang">
-                    <option>true</option>
-                    <option>false</option>
-                </select>
-
-                <select id="slope">
-                    <option>upsloping</option>
-                    <option>flat</option>
-                    <option>downsloping</option>
-                </select>
-
-                <select id="thal">
-                    <option>normal</option>
-                    <option>fixed defect</option>
-                    <option>reversable defect</option>
-                </select>
+                    </select>
+                </div>
 
             </div>
 
-            <button type="submit">Predict</button>
+            <h2>Heart Measurements</h2>
+
+            <div class="grid">
+
+                <div class="field">
+                    <label for="trestbps">
+                        Resting Blood Pressure (mmHg)
+                    </label>
+
+                    <input
+                            id="trestbps"
+                            type="number"
+                            min="50"
+                            max="250"
+                            required>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="chol">
+                        Cholesterol (mg/dL)
+                    </label>
+
+                    <input
+                            id="chol"
+                            type="number"
+                            min="50"
+                            max="700"
+                            required>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="thalch">
+                        Maximum Heart Rate
+                    </label>
+
+                    <input
+                            id="thalch"
+                            type="number"
+                            min="50"
+                            max="250"
+                            required>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="oldpeak">
+                        ST Depression (Oldpeak)
+                    </label>
+
+                    <input
+                            id="oldpeak"
+                            type="number"
+                            step="0.1"
+                            min="0"
+                            max="10"
+                            required>
+
+                </div>
+
+            </div>
+
+            <h2>Clinical Observations</h2>
+
+            <div class="grid">
+
+                <div class="field">
+
+                    <label for="cp">
+                        Chest Pain Type
+                    </label>
+
+                    <select id="cp">
+
+                        <option value="typical angina">
+                            Typical Angina
+                        </option>
+
+                        <option value="atypical angina">
+                            Atypical Angina
+                        </option>
+
+                        <option value="non-anginal">
+                            Non-anginal Pain
+                        </option>
+
+                        <option value="asymptomatic">
+                            Asymptomatic
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="fbs">
+                        Fasting Blood Sugar > 120 mg/dL
+                    </label>
+
+                    <select id="fbs">
+
+                        <option value="true">Yes</option>
+
+                        <option value="false">No</option>
+
+                    </select>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="restecg">
+                        Resting ECG Result
+                    </label>
+
+                    <select id="restecg">
+
+                        <option value="normal">
+                            Normal
+                        </option>
+
+                        <option value="st-t abnormality">
+                            ST-T Wave Abnormality
+                        </option>
+
+                        <option value="lv hypertrophy">
+                            Left Ventricular Hypertrophy
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="exang">
+                        Exercise-Induced Angina
+                    </label>
+
+                    <select id="exang">
+
+                        <option value="true">
+                            Yes
+                        </option>
+
+                        <option value="false">
+                            No
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="slope">
+                        ST Segment Slope
+                    </label>
+
+                    <select id="slope">
+
+                        <option value="upsloping">
+                            Upsloping
+                        </option>
+
+                        <option value="flat">
+                            Flat
+                        </option>
+
+                        <option value="downsloping">
+                            Downsloping
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="thal">
+                        Thalassemia Test
+                    </label>
+
+                    <select id="thal">
+
+                        <option value="normal">
+                            Normal
+                        </option>
+
+                        <option value="fixed defect">
+                            Fixed Defect
+                        </option>
+
+                        <option value="reversable defect">
+                            Reversible Defect
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="ca">
+                        Number of Major Vessels (0-3)
+                    </label>
+
+                    <input
+                            id="ca"
+                            type="number"
+                            min="0"
+                            max="3"
+                            required>
+
+                </div>
+
+            </div>
+
+            <button type="submit">
+
+                🔍 Predict Heart Disease
+
+            </button>
 
         </form>
 
-        <div id="result"></div>
+        <div id="loader" class="loader">
 
-        <div id="loader" class="loader hidden">
-    <div class="spinner"></div>
-    <p>
-        🚀 Starting AI prediction service...<br>
-        The backend may take up to a minute to wake up on the free server.
-    </p>
-</div>
+            <div class="spinner"></div>
+
+            <p>
+
+                Starting AI Prediction Service...
+
+                <br><br>
+
+                Free hosting may take
+                <strong>30–60 seconds</strong>
+                to wake up the backend on the first request.
+
+            </p>
+
+        </div>
+
+        <div id="result"></div>
 
     </div>
 
 </div>
 
+<footer class="footer">
+
+    <p>
+        Built with ❤️ using FastAPI & Scikit-Learn
+    </p>
+
+    <p
+        👨‍💻 Designed & Developed by <strong>Aman Agrahari</strong>
+    </p>
+    <a
+        href="https://www.aman8cse.engineer"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        ~<strong>PORTFOLIO</strong>
+
+    </a>
+
+</footer>
+
 <script src="script.js"></script>
 
 </body>
+
 </html>

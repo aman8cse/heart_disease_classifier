@@ -40,23 +40,70 @@ form.addEventListener("submit", async (e) => {
 
         const data = await response.json();
 
-        result.innerHTML = `
-            <h2>${data.severity}</h2>
+        let color = "green";
 
-            <h3>${data.confidence}% Confidence</h3>
+switch(data.class){
 
-            <p><strong>Predicted Class:</strong> ${data.class}</p>
+    case 0:
+        color="green";
+        break;
 
-            <hr style="margin:20px 0">
+    case 1:
+        color="yellow";
+        break;
 
-            <h4>Probabilities</h4>
+    case 2:
+        color="orange";
+        break;
 
-            <p>No Disease : ${(data.probabilities[0] * 100).toFixed(2)}%</p>
-            <p>Mild : ${(data.probabilities[1] * 100).toFixed(2)}%</p>
-            <p>Moderate : ${(data.probabilities[2] * 100).toFixed(2)}%</p>
-            <p>Severe : ${(data.probabilities[3] * 100).toFixed(2)}%</p>
-            <p>Critical : ${(data.probabilities[4] * 100).toFixed(2)}%</p>
-        `;
+    case 3:
+        color="red";
+        break;
+
+    case 4:
+        color="darkred";
+        break;
+
+}
+
+result.innerHTML = `
+
+<div class="result-card ${color}">
+
+<h2>${data.severity}</h2>
+
+<p><strong>Predicted Class:</strong> ${data.class}</p>
+
+<p><strong>Confidence:</strong> ${data.confidence}%</p>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+style="width:${data.confidence}%">
+</div>
+
+</div>
+
+<h3>Probability Distribution</h3>
+
+<p>No Disease : ${(data.probabilities[0]*100).toFixed(1)}%</p>
+<p>Mild : ${(data.probabilities[1]*100).toFixed(1)}%</p>
+<p>Moderate : ${(data.probabilities[2]*100).toFixed(1)}%</p>
+<p>Severe : ${(data.probabilities[3]*100).toFixed(1)}%</p>
+<p>Critical : ${(data.probabilities[4]*100).toFixed(1)}%</p>
+
+<div class="disclaimer">
+
+<b>Disclaimer:</b>
+
+This prediction is generated using a Machine Learning model and is intended for educational purposes only. It should not be considered medical advice or a substitute for professional diagnosis.
+
+</div>
+
+</div>
+
+`;
 
     } catch (err) {
 
